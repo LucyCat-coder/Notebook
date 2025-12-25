@@ -42,11 +42,13 @@ def save_notes(notes_list):
 
 
 def new_note():
+    '''Очищение текстового поля'''
     text_fild.insert('end', '\n\nДобавленный текст по кнопке!')
     text_fild.delete("1.0", END)
 
 
 def save_note():
+    '''Сохранение заметок'''
     content = text_fild.get("1.0", END).strip()
 
     if not content:
@@ -70,6 +72,7 @@ def save_note():
 
 
 def show_notes():
+    '''Показ заметок'''
     notes_list = load_notes()
     
     if not notes_list:
@@ -85,6 +88,7 @@ def show_notes():
 
 
 def delete_note():
+    '''Удаление заметок по номеру'''
     notes_list = load_notes()
     
     if not notes_list:
@@ -187,12 +191,12 @@ button_delete.pack(side=LEFT, padx=5)
 frame_bottom = Frame(root)
 frame_bottom.pack(pady=10)
 
-
 image = PhotoImage(file="./icon/razdelitel.png")
 separator = Label(frame_bottom, image=image)
 separator.pack()
 separator.image = image
 separator.pack()
+
 
 # Текстовое поле
 f_text = Frame(root)
